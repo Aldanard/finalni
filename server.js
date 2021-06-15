@@ -23,5 +23,13 @@ app.get('/api/events/:index', (req, res) => {
         .catch(err => res.send('Chyba lávky', err));
 });
 
+
+app.get('/api/mesta', (req, res) => {
+    readJSON('./historie/data/mesta.json')
+        .then(data => res.send(data))
+        .catch(err => res.send('Chyba lávky', err));
+});
+
+
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
